@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CardPeek privacy</title>
+    <style>
+      body { margin: 0; padding: 24px 16px; font: 15px/1.6 system-ui, "Segoe UI", sans-serif; background: #16181d; color: #f2f2f2; }
+      main { max-width: 720px; margin: 0 auto; }
+      h1 { font-size: 22px; margin: 0 0 4px; }
+      h2 { font-size: 16px; margin: 24px 0 6px; }
+      p, li { color: #d6d8dd; }
+      .muted { color: #8b909a; font-size: 13px; }
+      a { color: #8ab4ff; }
+      code { background: #232630; padding: 1px 4px; border-radius: 3px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="muted"><a href="index.html">&larr; Home</a> · <a href="report.html">Report a wrong card</a></p>
+      <h1>CardPeek privacy policy</h1>
+      <p class="muted">Last updated: 30 September 2026</p>
+
+      <p>Short version: CardPeek recognises cards on your own computer. It has no account, no analytics and no server of its own, and it does not collect personal data.</p>
+
+      <h2>Video frames stay in your browser</h2>
+      <p>When you rest the cursor on a YouTube or Twitch video, the extension copies small regions of the current video frame around the cursor and runs a recognition model on them inside the extension. The model and the card fingerprint database ship with the extension. Video frames and crops are never uploaded or saved.</p>
+
+      <h2>Settings</h2>
+      <p>Your settings (on/off, card language, English-only, hover delay, strictness, show search box) are saved with <code>chrome.storage.sync</code>. If you are signed in to Chrome with sync on, Google syncs them between your browsers. The extension's developer can't see them.</p>
+
+      <h2>Network requests the extension makes</h2>
+      <ul>
+        <li><strong>Official One Piece Card Game sites</strong> (<code>en.onepiece-cardgame.com</code>, <code>www.onepiece-cardgame.com</code>, both run by Bandai): when a card is shown, its image is downloaded from these sites. Like any web request, the sites receive your IP address and browser details. If the extension can't download the image itself, the page loads it directly as a normal image, with the referrer turned off so the site can't see which video you're watching.</li>
+        <li><strong>tcgcsv.com</strong> (a public mirror of TCGplayer's catalogue): when a card with a TCGplayer listing is shown, the extension downloads that set's price list to display a market price. Prices are cached for a few hours. Only the set's ID is part of the request.</li>
+        <li><strong>TCGplayer</strong> (<code>tcgplayer.com</code>): the extension contacts TCGplayer only when you click "Buy on TCGplayer" or "All versions on TCGplayer". The link opens in your browser like any other link, and TCGplayer's own privacy policy applies from then on.</li>
+      </ul>
+      <p>The extension does not send anything else and does not track the pages or videos you watch.</p>
+
+      <h2>Affiliate links</h2>
+      <p>The TCGplayer button may be an affiliate link (through TCGplayer's partner program, run by Impact). If you buy something after clicking it, the developer may earn a commission at no extra cost to you. When the button is an affiliate link, the card panel says so. Clicking it lets TCGplayer and Impact record the referral using their own cookies. The extension never sets cookies or adds affiliate tracking to pages you visit yourself, only to buttons you click.</p>
+
+      <h2>What we don't do</h2>
+      <ul>
+        <li>No analytics, telemetry, crash reporting or advertising SDKs.</li>
+        <li>No collection, sale or sharing of personal data, browsing history or video content.</li>
+        <li>No remote code: all code ships with the extension.</li>
+      </ul>
+
+      <h2>Permissions</h2>
+      <p>The extension can run on YouTube and Twitch pages (to read the video under your cursor) and can contact the card image and price sites listed above. It uses <code>storage</code> for your settings and <code>offscreen</code> to run the recognition model in the background.</p>
+
+      <h2>Changes and contact</h2>
+      <p>If this policy changes, the new version will ship with the extension and be listed on the Chrome Web Store page. For questions, use the support link on the extension's Chrome Web Store listing.</p>
+
+      <p class="muted">One Piece card images and names are © Eiichiro Oda/Shueisha, Toei Animation, Bandai. CardPeek is an unofficial fan tool and is not affiliated with or endorsed by Bandai, Shueisha, Toei Animation or TCGplayer.</p>
+    </main>
+  </body>
+</html>
